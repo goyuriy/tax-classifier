@@ -1,6 +1,7 @@
 import re
 import pickle
 import numpy as np
+import torch
 from typing import Dict, List, Optional, Any
 from sentence_transformers import SentenceTransformer
 from sklearn.linear_model import LogisticRegression
@@ -136,8 +137,26 @@ class SemanticClassifier(BaseEstimator, ClassifierMixin):
             
     @staticmethod
     def load(path: str):
-        with open(path, 'rb') as f:
-            return pickle.load(f)
+        # Map MPS (Apple) device to CPU so checkpoints saved on Mac load on Linux/containers
+        old_restore = getattr(
+            torch.serialization, "default_restore_location", None
+        )
+        if old_restore is not None:
+
+            def _cpu_restore(storage, location):
+                if isinstance(location, str) and location.startswith("mps"):
+                    location = "cpu"
+                elif isinstance(location, torch.device) and location.type == "mps":
+                    location = torch.device("cpu")
+                return old_restore(storage, location)
+
+            torch.serialization.default_restore_location = _cpu_restore
+        try:
+            with open(path, "rb") as f:
+                return pickle.load(f)
+        finally:
+            if old_restore is not None:
+                torch.serialization.default_restore_location = old_restore
 
 class HybridClassifier:
     """
