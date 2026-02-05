@@ -1,0 +1,44 @@
+{
+  "forms": [
+    {
+      "document_type": "other",
+      "start_page": 1,
+      "end_page": 25
+    },
+    {
+      "document_type": "1040f",
+      "start_page": 26,
+      "end_page": 27
+    },
+    {
+      "document_type": "f1040s2",
+      "start_page": 28,
+      "end_page": 29
+    },
+    {
+      "document_type": "other",
+      "start_page": 30,
+      "end_page": 36
+    },
+    {
+      "document_type": "f1040sb",
+      "start_page": 37,
+      "end_page": 40
+    },
+    {
+      "document_type": "f1040s3",
+      "start_page": 41,
+      "end_page": 41
+    },
+    {
+      "document_type": "1040f",
+      "start_page": 42,
+      "end_page": 42
+    },
+    {
+      "document_type": "other",
+      "start_page": 43,
+      "end_page": 57
+    }
+  ]
+}

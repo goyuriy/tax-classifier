@@ -1,0 +1,79 @@
+{
+  "forms": [
+    {
+      "document_type": "other",
+      "start_page": 1,
+      "end_page": 50
+    },
+    {
+      "document_type": "1040f",
+      "start_page": 51,
+      "end_page": 52
+    },
+    {
+      "document_type": "f1040s1",
+      "start_page": 53,
+      "end_page": 54
+    },
+    {
+      "document_type": "f1040s2",
+      "start_page": 55,
+      "end_page": 56
+    },
+    {
+      "document_type": "f1040s3",
+      "start_page": 57,
+      "end_page": 58
+    },
+    {
+      "document_type": "f1040sa",
+      "start_page": 59,
+      "end_page": 59
+    },
+    {
+      "document_type": "f1040sb",
+      "start_page": 60,
+      "end_page": 60
+    },
+    {
+      "document_type": "f1040sd",
+      "start_page": 61,
+      "end_page": 62
+    },
+    {
+      "document_type": "f1040se",
+      "start_page": 63,
+      "end_page": 63
+    },
+    {
+      "document_type": "other",
+      "start_page": 64,
+      "end_page": 67
+    },
+    {
+      "document_type": "f1040s3",
+      "start_page": 68,
+      "end_page": 68
+    },
+    {
+      "document_type": "1040f",
+      "start_page": 69,
+      "end_page": 69
+    },
+    {
+      "document_type": "other",
+      "start_page": 70,
+      "end_page": 70
+    },
+    {
+      "document_type": "f8889",
+      "start_page": 71,
+      "end_page": 71
+    },
+    {
+      "document_type": "other",
+      "start_page": 72,
+      "end_page": 96
+    }
+  ]
+}

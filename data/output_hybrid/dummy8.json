@@ -1,0 +1,74 @@
+{
+  "forms": [
+    {
+      "document_type": "other",
+      "start_page": 1,
+      "end_page": 52
+    },
+    {
+      "document_type": "1040f",
+      "start_page": 53,
+      "end_page": 54
+    },
+    {
+      "document_type": "f1040s2",
+      "start_page": 55,
+      "end_page": 56
+    },
+    {
+      "document_type": "f1040s3",
+      "start_page": 57,
+      "end_page": 58
+    },
+    {
+      "document_type": "f1040sa",
+      "start_page": 59,
+      "end_page": 59
+    },
+    {
+      "document_type": "f1040sb",
+      "start_page": 60,
+      "end_page": 60
+    },
+    {
+      "document_type": "f1040sd",
+      "start_page": 61,
+      "end_page": 62
+    },
+    {
+      "document_type": "f8949",
+      "start_page": 63,
+      "end_page": 65
+    },
+    {
+      "document_type": "f1040se",
+      "start_page": 66,
+      "end_page": 66
+    },
+    {
+      "document_type": "other",
+      "start_page": 67,
+      "end_page": 69
+    },
+    {
+      "document_type": "f2441",
+      "start_page": 70,
+      "end_page": 70
+    },
+    {
+      "document_type": "other",
+      "start_page": 71,
+      "end_page": 90
+    },
+    {
+      "document_type": "1040f",
+      "start_page": 91,
+      "end_page": 91
+    },
+    {
+      "document_type": "other",
+      "start_page": 92,
+      "end_page": 110
+    }
+  ]
+}
