@@ -30,7 +30,7 @@ Hybrid classifier: regex heuristics (fast, high precision) + embeddings (robust 
 |----------|-----|------|
 | **Hybrid (heuristics + ML)** | 80%+ of forms are standard → regex catches them instantly. ML handles edge cases. | Two models to maintain. |
 | **CPU-only (no GPU)** | Production deployment cost. Most tax forms are text-heavy; embeddings are fast enough. | Can't use LayoutLM or large models. |
-| **LogReg on embeddings** | Interpretable (weights per class), fast inference, works with 21 pages. | Less expressive than neural classifier. |
+| **LogReg on embeddings** | Interpretable (weights per class), fast inference, works with pages data. | Less expressive than neural classifier. |
 | **Train/Test Split + Page-level Validation** | Explicit negative sampling ("background" pages) to reduce false positives. | Requires manually labeled ground truth. |
 | **No OCR** | MVP scope. Real OCR adds latency and cost. | Scanned pages return "scanned_document". |
 
@@ -150,37 +150,44 @@ Hybrid Accuracy: 0.9605
 
 ## Usage
 
+Prefer **make**; use raw **python** only when needed (e.g. custom args).
+
 ### Setup
 
 ```bash
-pip install -r requirements.txt
-# or: make setup && source .venv/bin/activate
+make setup
+source .venv/bin/activate   # if not using make for run commands
 ```
+
+Optional: `pip install -r requirements.txt` (or use uv/venv yourself).
 
 ### Train
 
+Reads `data/input/*.pdf` and `data/target/*.json`, writes `models/semantic_classifier.pkl`.
+
 ```bash
-python main.py --mode train
-# reads data/input/*.pdf + data/target/*.json
-# writes models/semantic_classifier.pkl
+make train
 ```
+
+Optional: `python main.py --mode train` (e.g. with `--data_dir`, `--model_path`, `--output_dir`).
 
 ### Predict
 
+Reads `data/input/*.pdf`, writes `data/output/*.json`.
+
 ```bash
-python main.py --mode predict
-# reads data/input/*.pdf
-# writes data/output/*.json
+make predict
 ```
 
-Override defaults: `--data_dir`, `--model_path`, `--output_dir`.
+Optional: `python main.py --mode predict` with same override options.
 
 ### API
 
 ```bash
 make run-api
-# or: uvicorn api:app --reload --host 0.0.0.0 --port 8000
 ```
+
+Serves at `http://0.0.0.0:8000`. Optional: `uvicorn api:app --reload --host 0.0.0.0 --port 8000`.
 
 **Endpoints:**
 - `GET /health` → `{"status": "ok", "model_path": "..."}`
@@ -188,16 +195,6 @@ make run-api
 
 ```bash
 curl -X POST http://localhost:8000/classify -F "file=@data/input/dummy1.pdf"
-```
-
-### Notebook
-
-`notebooks/solution.ipynb` — exploration, validation, metrics.
-
-### Tests
-
-```bash
-pytest tests/  # when tests exist
 ```
 
 ---

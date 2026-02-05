@@ -1,4 +1,4 @@
-.PHONY: setup test clean run-exploration
+.PHONY: setup train predict test clean run-exploration run-api
 
 # Detect if running in a virtual environment
 IN_VENV := $(shell python3 -c 'import sys; print(sys.prefix != sys.base_prefix)' 2>/dev/null)
@@ -28,6 +28,12 @@ setup:
 	uv venv
 	@echo "Installing dependencies with uv..."
 	uv pip install -r requirements.txt
+
+train:
+	$(PYTHON_CMD) main.py --mode train
+
+predict:
+	$(PYTHON_CMD) main.py --mode predict
 
 test:
 	$(PYTHON_CMD) -m unittest discover tests
